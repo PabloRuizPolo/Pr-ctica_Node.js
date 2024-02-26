@@ -1,2 +1,8 @@
-# Pr-ctica_Node.js
-Nodepop
+# Nodepop
+
+## Developers
+To start the app in *dev* mode use:
+```js
+npm run dev
+```
+
