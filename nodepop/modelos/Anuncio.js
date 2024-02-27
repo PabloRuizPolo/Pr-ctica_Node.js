@@ -6,7 +6,10 @@ const anuncioSchema = mongoose.Schema({
     venta: { type: Boolean, required: true, index: true }, 
     precio: { type: Number, index: true }, 
     foto: String, 
-    tags: [String]
+    tags: {
+        type: [String],
+        enum: ['work', 'lifestyle', 'motor', 'mobile']
+    }
 }, {
     collection: 'anuncios'
 });
@@ -14,6 +17,7 @@ const anuncioSchema = mongoose.Schema({
 
 // Creo el modelo de los anuncios
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
+
 
 //Exporto el modelo
 module.exports = Anuncio;

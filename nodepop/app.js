@@ -16,6 +16,10 @@ app.set('view engine', 'ejs');
 
 //Middlewares de respuesta
 
+//Rutas del api
+app.use('./api/anuncios', require('./routes/api/anuncios'))
+
+//Rutas del website
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -25,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*Prueba del ruter prueba. Probando recibir peticiones de url y dar una respuesta
 app.use('/prueba', require('./routes/prueba'))
 */
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
