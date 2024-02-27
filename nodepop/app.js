@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* Prueba del ruter prueba. Probando recibir peticiones de url y dar una respuesta
-* app.use('/prueba', require('./routes/prueba'))
+/*Prueba del ruter prueba. Probando recibir peticiones de url y dar una respuesta
+app.use('/prueba', require('./routes/prueba'))
 */
 
 app.use('/', indexRouter);
