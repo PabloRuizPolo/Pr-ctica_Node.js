@@ -19,6 +19,44 @@
                 "lifestyle",
                 "mobile"
             ]
+        },
+        {
+            "nombre": "Pala de padel",
+            "venta": false,
+            "precio": 25.00,
+            "tags": [
+                "lifestyle"
+            ]
+        },
+        {
+            "nombre": "MacBookAir",
+            "venta": true,
+            "precio": 950.00,
+            "foto": "mac.png",
+            "tags": [
+                "lifestyle",
+                "work"
+            ]
+        },
+        {
+            "nombre": "Surfskate",
+            "venta": true,
+            "precio": 90.00,
+            "foto": "skate.png",
+            "tags": [
+                "lifestyle",
+                "motor"
+            ]
+        },
+        {
+            "nombre": "Neopreno",
+            "venta": false,
+            "precio": 220.00,
+            "foto": "neopreno.png",
+            "tags": [
+                "lifestyle",
+                "work"
+            ]
         }
     ]
 }
