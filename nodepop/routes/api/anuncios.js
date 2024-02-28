@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const Anuncio = require('../../modelos/Anuncio');
-require('../../lib/connectMongoose');
 
 
 const newAdd = new Anuncio({

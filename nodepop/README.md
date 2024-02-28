@@ -6,3 +6,10 @@ To start the app in *dev* mode use:
 npm run dev
 ```
 
+To initialize the database:
+```js
+npm run initDb
+```
+
+
+
