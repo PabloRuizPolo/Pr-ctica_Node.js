@@ -11,12 +11,4 @@ const Anuncio = require('../modelos/Anuncio'); // Ruta al archivo donde se defin
 require('./lib/connectMongoose');
 
 
-const newAdd = new Anuncio({
-  nombre: 'Pablo Casa',
-  venta: true,
-  precio: 50
-});
-
-await newAdd.save();
-
 module.exports = router;
