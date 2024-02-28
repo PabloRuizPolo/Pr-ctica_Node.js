@@ -3,6 +3,8 @@
 const readline = require('node:readline')
 //Bring the model of Anuncio
 const Anuncio = require('./modelos/Anuncio')
+// Bring init-data
+const initData = require('./init-data.json')
 
 main().catch(err => console.log('There was an error ', err));
 
@@ -26,7 +28,7 @@ async function initAnuncios() {
     console.log(`${deleted.deletedCount} adds were deleted`)
 
     // Insert all the adds I give
-    const upload = await Anuncio.insertMany([
+    /*const upload = await Anuncio.insertMany([
         {
             nombre: 'Iphone',
             venta: false, 
@@ -45,7 +47,11 @@ async function initAnuncios() {
             precio: 1, 
         }
     ]);
-    console.log(`${upload.length} adds were inserted`)
+    */
+   const anuncios = initData.anuncios //bring the list of anuncios in json
+
+   const insert = await Anuncio.insertMany(anuncios) //pass anuncios fo json to Anuncios model
+    console.log(`${insert.length} adds were inserted`)
 };
 
 //To make sure we want to do this
