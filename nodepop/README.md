@@ -12,5 +12,25 @@ To initialize the database:
 npm run initDb
 ```
 
+## API
+**To get the Anuncios list**
+
+GET http://127.0.0.1:3000/api/anuncios
+```json
+"results": [
+        {
+            "_id": "65e072802477275b36492afd",
+            "nombre": "Bicicleta",
+            "venta": true,
+            "precio": 230.15,
+            "foto": "bici.jpg",
+            "tags": [
+                "lifestyle",
+                "motor"
+            ],
+            "__v": 0
+        }]
+``` 
+
 
 

@@ -7,5 +7,21 @@
   <body>
     <h1><%= title %></h1>
     <p>Search and Create adds with <%= title %></p>
+
+    <h1></h1>
+
+    <h2>Lista de productos</h2>
+  <ul>
+  <% for (let anuncio of anuncios) { %>
+    <li>
+      <p><%= anuncio.nombre %></p>
+      <p><b>Se vende:</b> <%= anuncio.venta %></p>
+      <p><b>Precio:</b> <%= anuncio.precio %></p>
+      <p> <i><%= anuncio.tags %></i></p>
+    </li>
+  <% } %>
+  </ul>
+
+    
   </body>
 </html>
