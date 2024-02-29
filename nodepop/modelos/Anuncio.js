@@ -10,9 +10,13 @@ const anuncioSchema = mongoose.Schema({
         type: [String],
         enum: ['work', 'lifestyle', 'motor', 'mobile']
     }
-}, {
-    collection: 'anuncios'
 });
+
+//Defino el metodo listar, lo puedo hacer en el modelo este
+anuncioSchema.statics.listar = function() {
+    const query = Anuncio.find()
+    return query.exec()
+}
 
 
 // Creo el modelo de los anuncios
