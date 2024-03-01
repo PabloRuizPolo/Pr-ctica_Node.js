@@ -6,7 +6,37 @@ const Anuncio = require('../../modelos/Anuncio');
 return anuncios list */
 router.get('/', async function(req, res, next) {
     try {
-        const anuncios = await Anuncio.find();
+        //filters
+        //http://127.0.0.1:3000/api/anuncios?tags=lifestyle&nombre=bicicleta&venta=true
+        const filterByName = req.query.name;
+        const filterByTag = req.query.tags;
+        const filterByVenta = req.query.venta;
+
+        //page
+        //http://127.0.0.1:3000/api/anuncios?skip2&limit6
+        const skip = req.query.skip;
+        const limit = req.query.limit;
+
+
+        const filter = {}
+
+        // ?nombre=nombre
+        if (filterByName) {
+            filter.nombre = { $regex: `^${filterByName}`, $options: 'i' };
+        }
+        // ?tags=nombre
+        if (filterByTag) {
+            filter.tags = { $all: filterByTag };
+        }
+        // ?venta=true or false
+        if (filterByVenta === 'true') {
+            filter.venta = true
+        } else if (filterByVenta === 'false') {
+            filter.venta = false
+        }
+        
+
+        const anuncios = await Anuncio.listar(filter, skip, limit);
         res.json({ results: anuncios});
 
     } catch (error) {
