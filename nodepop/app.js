@@ -4,9 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
-
 require('./lib/connectMongoose');
+
 var app = express();
 
 // view engine setup
@@ -14,20 +13,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //Middlewares de respuesta
-
-//Rutas del api
-app.use('/api/anuncios', require('./routes/api/anuncios'))
-
-//Rutas del website
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Prueba del ruter prueba. Probando recibir peticiones de ruta y dar una respuesta
-app.use('/prueba', require('./routes/prueba'))
+//Rutas del api
+app.use('/api/anuncios', require('./routes/api/anuncios'))
 
+//Rutas del website
 app.use('/', require('./routes/index'));
 
 

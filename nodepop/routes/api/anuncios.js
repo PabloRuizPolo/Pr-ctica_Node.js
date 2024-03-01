@@ -3,8 +3,7 @@ var router = express.Router();
 const Anuncio = require('../../modelos/Anuncio');
 
 /* GET /api/anuncios
-devuelve una lista de agentes */
-
+return anuncios list */
 router.get('/', async function(req, res, next) {
     try {
         const anuncios = await Anuncio.find();
@@ -14,5 +13,44 @@ router.get('/', async function(req, res, next) {
         next(error)
     }
 });
+//POST /api/anuncios (body)
+// Create a new anuncio
+router.post('/', async(req, res, next) => {
+    //paso los datos que recibo a variables
+    try {
+        const anuncioInfo = req.body;
+        // creamos una instancia  de agente en memoria
+        const anuncio = new Anuncio(anuncioInfo);
+
+        // Lo persistimos (guardamos) en la BD
+        const anuncioSave = await anuncio.save();
+
+        res.json({result: anuncioSave});
+
+    } catch (error) {
+        next(error)
+    }
+});
+
+//GET /api/anuncios/(vender or comprar)
+//show adds to buy with 'comprar' and to sell whit 'vender'
+router.get('/:accion', async (req, res, next) => {
+    try {
+        const accion = req.params.accion
+        let quiero;
+    
+        if (accion === 'vendo') {
+            quiero = true
+        } else if (accion === 'compro') {
+            quiero = false
+        }
+        console.log(quiero)
+        const anuncios = await Anuncio.find({venta: quiero})
+        res.json({results: anuncios})
+    } catch (error) {
+        next(error)
+    }
+})
+
 
 module.exports = router;
