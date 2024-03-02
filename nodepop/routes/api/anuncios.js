@@ -17,11 +17,9 @@ router.get('/', async function(req, res, next) {
         const skip = req.query.skip;
         const limit = req.query.limit;
 
-        //Tags list
-        //http://127.0.0.1:3000/api/anuncios?fields= -_id -venta -precio -foto -__v
+        //field list
         const fields = req.query.fields
-        
-
+    
         const filter = {}
 
         // ?nombre=nombre
@@ -47,6 +45,7 @@ router.get('/', async function(req, res, next) {
         next(error)
     }
 });
+
 //POST /api/anuncios (body)
 // Create a new anuncio
 router.post('/', async(req, res, next) => {

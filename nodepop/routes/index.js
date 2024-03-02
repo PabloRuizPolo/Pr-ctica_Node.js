@@ -14,7 +14,10 @@ router.get('/', async function(req, res, next) {
 
 });
 
-
+//GET list by filters
+router.get('/:', async function(req, res, next) {
+  //
+})
 
 module.exports = router;
 
