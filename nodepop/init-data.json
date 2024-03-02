@@ -4,7 +4,7 @@
             "nombre": "Bicicleta",
             "venta": true,
             "precio": 230.15,
-            "foto": "bici.jpg",
+            "foto": "bicycle-161524_1280.png",
             "tags": [
                 "lifestyle",
                 "motor"
@@ -14,7 +14,7 @@
             "nombre": "iPhone 3GS",
             "venta": false,
             "precio": 50.00,
-            "foto": "iphone.png",
+            "foto": "iPhone 3GS.png",
             "tags": [
                 "lifestyle",
                 "mobile"

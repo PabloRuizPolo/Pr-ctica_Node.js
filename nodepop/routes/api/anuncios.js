@@ -13,7 +13,7 @@ router.get('/', async function(req, res, next) {
         const filterByVenta = req.query.venta;
 
         //page
-        //http://127.0.0.1:3000/api/anuncios?skip2&limit6
+        //http://127.0.0.1:3000/api/anuncios?skip=2&limit=5
         const skip = req.query.skip;
         const limit = req.query.limit;
 

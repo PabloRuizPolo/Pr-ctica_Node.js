@@ -11,16 +11,21 @@
     <h1></h1>
 
     <h2>Lista de productos</h2>
-  <ul>
-  <% for (let anuncio of anuncios) { %>
-    <li>
-      <p><%= anuncio.nombre %></p>
-      <p><b>Se vende:</b> <%= anuncio.venta %></p>
-      <p><b>Precio:</b> <%= anuncio.precio %></p>
-      <p> <i><%= anuncio.tags %></i></p>
-    </li>
-  <% } %>
-  </ul>
+    <ul>
+      <% for (let anuncio of anuncios) { %>
+        <li>
+          <p><%= anuncio.nombre %></p>
+          <p><b>Se vende:</b> <%= anuncio.venta %></p>
+          <p><b>Precio:</b> <%= anuncio.precio %></p>
+          <p> <i><%= anuncio.tags %></i></p>
+          <% if (anuncio.foto) { %>
+            <img src="../public/images/<%= anuncio.foto %>" alt="<%= anuncio.nombre %>">
+          <% } else { %>
+          <% } %>
+        </li>
+        <br>
+      <% } %>
+    </ul>
 
     
   </body>
