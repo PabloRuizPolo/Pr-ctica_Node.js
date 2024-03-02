@@ -13,12 +13,11 @@ const anuncioSchema = mongoose.Schema({
 });
 
 //Defino el metodo listar, lo puedo hacer en el modelo este
-anuncioSchema.statics.listar = function(filtro, skip, limit) {
+anuncioSchema.statics.listar = function(filtro, skip, limit, fields) {
     const query = Anuncio.find(filtro);
     query.skip(skip);
-    query.limit(limit)
-
-
+    query.limit(limit);
+    query.select(fields);
     return query.exec()
 }
 

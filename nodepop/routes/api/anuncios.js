@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
     try {
         //filters
         //http://127.0.0.1:3000/api/anuncios?tags=lifestyle&nombre=bicicleta&venta=true
-        const filterByName = req.query.name;
+        const filterByName = req.query.nombre;
         const filterByTag = req.query.tags;
         const filterByVenta = req.query.venta;
 
@@ -17,6 +17,10 @@ router.get('/', async function(req, res, next) {
         const skip = req.query.skip;
         const limit = req.query.limit;
 
+        //Tags list
+        //http://127.0.0.1:3000/api/anuncios?fields= -_id -venta -precio -foto -__v
+        const fields = req.query.fields
+        
 
         const filter = {}
 
@@ -36,7 +40,7 @@ router.get('/', async function(req, res, next) {
         }
         
 
-        const anuncios = await Anuncio.listar(filter, skip, limit);
+        const anuncios = await Anuncio.listar(filter, skip, limit, fields);
         res.json({ results: anuncios});
 
     } catch (error) {

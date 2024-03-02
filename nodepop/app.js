@@ -24,6 +24,7 @@ app.use('/api/anuncios', require('./routes/api/anuncios'))
 
 //Rutas del website
 app.use('/', require('./routes/index'));
+app.use('/images', require('./routes/images'))
 
 
 

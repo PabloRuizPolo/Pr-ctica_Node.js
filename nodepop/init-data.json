@@ -52,7 +52,6 @@
             "nombre": "Neopreno",
             "venta": false,
             "precio": 220.00,
-            "foto": "neopreno.png",
             "tags": [
                 "lifestyle",
                 "work"
