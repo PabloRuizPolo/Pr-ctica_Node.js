@@ -18,6 +18,7 @@ router.get('/', async function(req, res, next) {
         const limit = req.query.limit;
 
         //field list
+        //http://127.0.0.1:3000/api/anuncios?fields=nombre&fields=tags
         const fields = req.query.fields
     
         const filter = {}
