@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-// Creo el schema de los anuncios
+// Create de Anuncios schema
 const anuncioSchema = mongoose.Schema({
     nombre: { type: String, required: true },
     venta: { type: Boolean, required: true, index: true }, 
@@ -12,7 +12,7 @@ const anuncioSchema = mongoose.Schema({
     }
 });
 
-//Defino el metodo listar, lo puedo hacer en el modelo este
+//Set the method list
 anuncioSchema.statics.listar = function(filtro, skip, limit, fields) {
     const query = Anuncio.find(filtro);
     query.skip(skip);
@@ -22,9 +22,9 @@ anuncioSchema.statics.listar = function(filtro, skip, limit, fields) {
 }
 
 
-// Creo el modelo de los anuncios
+// Create the anuncios model
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
 
-//Exporto el modelo
+//Export the model
 module.exports = Anuncio;

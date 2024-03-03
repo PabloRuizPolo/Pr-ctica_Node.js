@@ -6,18 +6,18 @@ const Anuncio = require('../modelos/Anuncio');
 router.get('/', async function(req, res, next) {
   try {
     //filters
-    //http://127.0.0.1:3000/api/anuncios?tags=lifestyle&nombre=bicicleta&venta=true
+    //http://127.0.0.1:3000?tags=lifestyle&nombre=bicicleta&venta=true
     const filterByName = req.query.nombre;
     const filterByTag = req.query.tags;
     const filterByVenta = req.query.venta;
 
     //page
-    //http://127.0.0.1:3000/api/anuncios?skip=2&limit=5
+    //http://127.0.0.1:3000?skip=2&limit=5
     const skip = req.query.skip;
     const limit = req.query.limit;
 
     //field list
-    //http://127.0.0.1:3000/api/anuncios?fields=nombre&fields=tags
+    //http://127.0.0.1:3000?fields=nombre&fields=tags
     const fields = req.query.fields
     
     const filter = {}
@@ -48,14 +48,6 @@ router.get('/', async function(req, res, next) {
   }
 
 });
-
-//GET list by filters
-
-router.get('/:', async function(req, res, next) {
-  //
-})
-
-
 
 module.exports = router;
 

@@ -43,6 +43,26 @@ lifestyle,mobile
 iPhone 3GS
 ```
 
+**To get the products list with filters**
+GET http://127.0.0.1:3000?tags=lifestyle&nombre=bicicleta&venta=true
+```
+Nodepop
+Search and Create adds with Nodepop
+
+Lista de productos
+Bicicleta
+
+Se vende: true
+
+Precio: 230.15
+
+lifestyle,motor
+
+Bicicleta
+
+```
+
+
 **To get the product´s images**
 GET http://127.0.0.1:3000/images/(product´s name)
 GET http://127.0.0.1:3000/images/Bicicleta
