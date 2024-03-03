@@ -1,10 +1,11 @@
 # Nodepop
-
 ## Developers
 To start the app in *dev* mode use:
 ```js
 npm run dev
 ```
+
+
 
 **DANGER, use only if you know what you are doing**
 To initialize the database:
@@ -12,9 +13,9 @@ To initialize the database:
 npm run initDb
 ```
 
-http://127.0.0.1:3000/images/Bicicleta
-## WEBSITE
 
+
+## WEBSITE
 **To get the home page**
 GET http://127.0.0.1:3000/
 ```
@@ -43,6 +44,7 @@ lifestyle,mobile
 iPhone 3GS
 ```
 
+
 **To get the products list with filters**
 GET http://127.0.0.1:3000?tags=lifestyle&nombre=bicicleta&venta=true
 ```
@@ -63,14 +65,17 @@ Bicicleta
 ```
 
 
+
 **To get the product´s images**
 GET http://127.0.0.1:3000/images/(product´s name)
 GET http://127.0.0.1:3000/images/Bicicleta
 img
 
+
+
+
 ## API
 **To get the Products list**
-
 GET http://127.0.0.1:3000/api/anuncios
 ```json
 "results": [
@@ -87,8 +92,9 @@ GET http://127.0.0.1:3000/api/anuncios
             "__v": 0
         }]
 ``` 
-**To get the Products people want to buy**
 
+
+**To get the Products people want to buy**
 GET http://127.0.0.1:3000/api/anuncios/compro
 ```json
 {
@@ -105,8 +111,8 @@ GET http://127.0.0.1:3000/api/anuncios/compro
 }
 ```
 
-**To get the Products people want to sell**
 
+**To get the Products people want to sell**
 GET http://127.0.0.1:3000/api/anuncios/vendo
 ```json
 {
@@ -123,8 +129,8 @@ GET http://127.0.0.1:3000/api/anuncios/vendo
 }
 ```
 
-**To get the Products filter by name or/and tags or/and if they are selling or searching**
 
+**To get the Products filter by name or/and tags or/and if they are selling or searching**
 GET http://127.0.0.1:3000/api/anuncios?tags=(tag you want)&nombre=(name you want)&venta=(true or false)
 ```json
 {
@@ -141,6 +147,7 @@ GET http://127.0.0.1:3000/api/anuncios?tags=(tag you want)&nombre=(name you want
 }
 ```
 
+
 **To page in the search**
 GET http://127.0.0.1:3000/api/anuncios?skip=2&limit=5
 ```json
@@ -156,6 +163,7 @@ GET http://127.0.0.1:3000/api/anuncios?skip=2&limit=5
 },
 ```
 
+
 **To get the list of tags every product has**
 GET http://127.0.0.1:3000/api/anuncios?fields=%20-_id%20-venta%20-precio%20-foto%20-__v
 ```json
@@ -167,6 +175,7 @@ GET http://127.0.0.1:3000/api/anuncios?fields=%20-_id%20-venta%20-precio%20-foto
 ]
 },
 ```
+
 
 **To create a new product´s add**
 POST http://127.0.0.1:3000/api/anuncios (body)
