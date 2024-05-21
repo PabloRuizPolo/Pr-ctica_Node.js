@@ -1,32 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Search and Create adds with <%= title %></p>
-
-    <h1></h1>
-
-    <h2>Lista de productos</h2>
-    <ul>
-      <% for (let anuncio of anuncios) { %>
-        <li>
-          <p><%= anuncio.nombre %></p>
-          <p><b>Se vende:</b> <%= anuncio.venta %></p>
-          <p><b>Precio:</b> <%= anuncio.precio %></p>
-          <p> <i><%= anuncio.tags %></i></p>
-          <% if (anuncio.foto) { %>
-            <img src="../public/images/<%= anuncio.foto %>" alt="<%= anuncio.nombre %>">
-          <% } else { %>
-          <% } %>
-        </li>
-        <br>
-      <% } %>
-    </ul>
-
-    
-  </body>
+<%- include('header.ejs') %>
+<header class="masthead text-center text-white">
+  <div class="masthead-content">
+      <div class="container px-5">
+          <h1 class="masthead-heading mb-0"><%= title %></h1>
+          <h2 class="masthead-subheading mb-0">Search and Create adds with <%= title %></h2>
+          <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Create add</a>
+      </div>
+  </div>
+  <div class="bg-circle-1 bg-circle"></div>
+  <div class="bg-circle-2 bg-circle"></div>
+  <div class="bg-circle-3 bg-circle"></div>
+  <div class="bg-circle-4 bg-circle"></div>
+</header>
+<section id="scroll">
+  <ul>
+    <% for (let anuncio of anuncios) { %>
+      <li>
+        <div class="container px-5">
+          <div class="row gx-5 align-items-center">
+              <div class="col-lg-6 order-lg-2">
+                <% if (anuncio.foto) { %>
+                  <div class="p-5"><img class="img-fluid rounded-circle" src="../public/images/<%= anuncio.foto %>" alt="<%= anuncio.nombre %>"/></div>
+                <% } else { %>
+                <% } %>
+              </div>
+              <div class="col-lg-6 order-lg-1">
+                  <div class="p-5">
+                      <h2 class="display-4"><%= anuncio.nombre %></h2>
+                      <p><b>Se vende:</b> <%= anuncio.venta %></p>
+                      <p><b>Precio:</b> <%= anuncio.precio %></p>
+                      <p> <i><%= anuncio.tags %></i></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </li>
+    <% } %>
+  </ul>
+</section>
+</body>
+  <%- include('footer.ejs') %>
 </html>
