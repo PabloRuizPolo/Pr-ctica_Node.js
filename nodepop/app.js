@@ -29,6 +29,8 @@ app.use("/api/anuncios", require("./routes/api/anuncios"));
 app.use("/", require("./routes/index"));
 app.use("/images", require("./routes/images"));
 
+app.get("/login");
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
