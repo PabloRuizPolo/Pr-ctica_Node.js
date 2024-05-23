@@ -5,6 +5,10 @@ const userSchema = mongoose.Schema({
   password: String,
 });
 
+userSchema.methods.comparePassword = function (password) {
+  return password === this.password;
+};
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

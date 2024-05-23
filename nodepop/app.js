@@ -4,6 +4,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+const LoginController = require("./controllers/loginController");
+
+const loginController = new LoginController();
+
 require("./lib/connectMongoose");
 
 var app = express();
@@ -29,7 +33,8 @@ app.use("/api/anuncios", require("./routes/api/anuncios"));
 app.use("/", require("./routes/index"));
 app.use("/images", require("./routes/images"));
 
-app.get("/login");
+app.get("/login", loginController.index);
+app.post("/login", loginController.enter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
