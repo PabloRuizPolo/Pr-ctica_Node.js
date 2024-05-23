@@ -1,3 +1,5 @@
+const { User } = require("../modelos");
+
 class LoginController {
   index(req, res, next) {
     res.locals.error = "";
