@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //Rutas del api
 app.use("/api/anuncios", require("./routes/api/anuncios"));
+app.post("/api/login", loginController.createJWT);
 
 //Rutas del website
 app.use("/", require("./routes/index"));
