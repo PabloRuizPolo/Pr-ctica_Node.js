@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const jwtAuth = require("./lib/apiAuthJWT");
 
 const LoginController = require("./controllers/loginController");
 
@@ -27,7 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 //Rutas del api
-app.use("/api/anuncios", require("./routes/api/anuncios"));
+app.use("/api/anuncios", jwtAuth, require("./routes/api/anuncios"));
 app.post("/api/login", loginController.createJWT);
 
 //Rutas del website
