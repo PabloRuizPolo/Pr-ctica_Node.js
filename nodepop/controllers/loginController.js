@@ -3,7 +3,7 @@ const User = require("../modelos/User");
 class LoginController {
   index(req, res, next) {
     res.locals.error = "";
-    res.locals.mail = "";
+    res.locals.email = "";
     res.render("login");
   }
 
@@ -18,7 +18,7 @@ class LoginController {
       //compare user and password
 
       if (!user || !(await user.comparePassword(password))) {
-        res.locals.error = "invalid credentials";
+        res.locals.error = "Invalid credentials";
         res.locals.email = email;
         res.render("login");
         return;
