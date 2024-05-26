@@ -27,7 +27,11 @@
               <div class="col-lg-6 order-lg-1">
                   <div class="p-5">
                       <h2 class="display-4"><%= anuncio.nombre %></h2>
-                      <p><b><%= __('To sale') %>:</b> <%= anuncio.venta %></p>
+                      <p><b>  <% if (anuncio.venta) { %>
+                        <%= __('Sale') %>
+                      <%} else {%>
+                        <%= __('Buy') %>
+                     <% }  %></b></p>
                       <p><b><%= __('Price') %>:</b> <%= anuncio.precio %></p>
                       <p> <i><%= anuncio.tags %></i></p>
                   </div>
