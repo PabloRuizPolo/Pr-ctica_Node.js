@@ -32,24 +32,17 @@
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container px-5">
         <a class="navbar-brand" href="/"><%= title %></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <% getLocales().forEach(local => { %>
+        <a href="/changeLangController/<%= local %>"><%= local %></a>&nbsp; <%
+        }) %>;
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#!">Your adds</a>
+              <a class="nav-link" href="/createAdd"><%= __('New add') %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login">Log In</a>
+              <a class="nav-link" href="/login"><%= __('Log In') %></a>
             </li>
           </ul>
         </div>

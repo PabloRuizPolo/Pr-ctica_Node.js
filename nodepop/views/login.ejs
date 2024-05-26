@@ -40,7 +40,7 @@
               >
                 <i class="bi bi-envelope"></i>
               </div>
-              <h1 class="fw-bolder">Welcome Back!</h1>
+              <h1 class="fw-bolder"><%= __('Welcome Back!') %></h1>
             </div>
             <div class="row gx-5 justify-content-center">
               <div class="col-lg-8 col-xl-6">
@@ -58,12 +58,12 @@
                       placeholder="Enter your email..."
                       data-sb-validations="required"
                     />
-                    <label for="name">Email</label>
+                    <label for="name"><%= __('Email') %></label>
                     <div
                       class="invalid-feedback"
                       data-sb-feedback="name:required"
                     >
-                      A email is required.
+                      <%= __('A email is required') %>.
                     </div>
                   </div>
 
@@ -76,16 +76,16 @@
                       placeholder="password"
                       data-sb-validations="required,email"
                     />
-                    <label for="password">Password</label>
+                    <label for="password"><%= __('Password') %></label>
                     <div
                       class="invalid-feedback"
                       data-sb-feedback="email:required"
                     >
-                      A password is required.
+                      <%= __('A password is required') %>.
                     </div>
                   </div>
 
-                  <%= error %>
+                  <%= __(error) %>
 
                   <!-- Submit Button-->
                   <div class="d-grid">
@@ -94,7 +94,7 @@
                       id="submitButton"
                       type="submit"
                     >
-                      Submit
+                      <%= __('Submit') %>
                     </button>
                   </div>
                 </form>

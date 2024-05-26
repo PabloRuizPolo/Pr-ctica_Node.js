@@ -3,11 +3,16 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const i18n = require("./lib/i18nConfig");
 const jwtAuth = require("./lib/apiAuthJWT");
 
 const LoginController = require("./controllers/loginController");
+const CreateAddController = require("./controllers/createAddController");
+const ChangeLangController = require("./controllers/changeLangController");
 
 const loginController = new LoginController();
+const createAddController = new CreateAddController();
+const changeLangController = new ChangeLangController();
 
 require("./lib/connectMongoose");
 
@@ -29,14 +34,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //Rutas del api
 app.use("/api/anuncios", jwtAuth, require("./routes/api/anuncios"));
-app.post("/api/login", loginController.createJWT);
+app.post("/api/authenticate", loginController.createJWT);
 
 //Rutas del website
+app.use(i18n.init);
 app.use("/", require("./routes/index"));
 app.use("/images", require("./routes/images"));
 
+app.get("/changeLangController/:locale", changeLangController.index);
 app.get("/login", loginController.index);
 app.post("/login", loginController.enter);
+app.get("/createAdd", createAddController.index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
