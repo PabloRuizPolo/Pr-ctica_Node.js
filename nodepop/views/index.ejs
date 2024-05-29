@@ -35,7 +35,9 @@
                       <% if (anuncio.precio) { %>
                         <p><b><%= __('Price') %>:</b> <%= anuncio.precio %> €</p>
                       <% } %>
-                      <p> <i><%= anuncio.tags %></i></p>
+                      <% anuncio.tags.forEach(tag => { %>                    
+                        <span> <i><%= __(tag) %> </i></span>&nbsp;
+                        <% }) %>
                   </div>
               </div>
           </div>

@@ -32,5 +32,10 @@
 	"Venta": "Venta",
 	"Compra": "Compra",
 	"Action": "Action",
-	"Action:": "Action:"
+	"Action:": "Action:",
+	"tags": "tags",
+	"lifestyle": "lifestyle",
+	"motor": "motor",
+	"mobile": "mobile",
+	"work": "work"
 }
