@@ -1,1 +1,138 @@
-<%- include('header.ejs') %> <%- include('footer.ejs') %>
+<%- include('header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="cssRe/sb-admin-2.min.css" rel="stylesheet" />
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -.75rem;
+            margin-left: -.75rem;
+            justify-content: center;
+        }
+        .mt-5, .my-5 {
+            margin-top: 4rem !important;
+        }
+    </style>
+  </head>
+
+  <body class="bg-gradient-primary">
+    <div class="container">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">
+                    <%= __('Create an Add!') %>
+                  </h1>
+                </div>
+                <form class="user" method="post">
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="text" class="form-control form-control-user"
+                      id="exampleFirstName" placeholder= <%= __("Product") %>
+                      name='nombre' />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="venta"><%= __('Action:') %></label>
+                      <input
+                        type="radio"
+                        name="venta"
+                        value="true"
+                        checked
+                      />
+                      <%= __('Sale') %> &nbsp;
+                      <input
+                        type="radio"
+                        name="venta"
+                        value="false"
+                      />
+                      <%= __('Buy') %> &nbsp;
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control form-control-user"
+                    name="precio" placeholder= <%= __("Price") %> />
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <label for="tags"><strong><%= __('Tags:') %></strong></label>&nbsp;
+                      <input
+                        type="checkbox"
+                        name="tags"
+                        id="exampleInputPassword"
+                        value="work"
+                      /><%= __('Work') %>&nbsp;
+                      <input
+                        type="checkbox"
+                        name="tags"
+                        id="exampleInputPassword"
+                        value="lifestyle"
+                      /><%= __('Lifestyle') %>&nbsp;
+                      <input
+                        type="checkbox"
+                        name="tags"
+                        id="exampleInputPassword"
+                        value="motor"
+                      /><%= __('Motor') %>&nbsp;
+                      <input
+                        type="checkbox"
+                        name="tags"
+                        id="exampleInputPassword"
+                        value="mobile"
+                      /><%= __('Mobile') %>&nbsp;
+                    </div>
+                    <div class="col-sm-6">
+                      <input
+                        type="file"
+                        id="exampleRepeatPassword"
+                        name="image"
+                      />
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-user btn-block"
+                  type="submit">
+                    <%= __('Create Add') %>
+                  </button>
+                  
+                </form>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<%- include('footer.ejs') %>

@@ -45,6 +45,7 @@ app.get("/changeLangController/:locale", changeLangController.index);
 app.get("/login", loginController.index);
 app.post("/login", loginController.enter);
 app.get("/createAdd", createAddController.index);
+app.post("/createAdd", createAddController.post);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -32,7 +32,9 @@
                       <%} else {%>
                         <%= __('Buy') %>
                      <% }  %></b></p>
-                      <p><b><%= __('Price') %>:</b> <%= anuncio.precio %></p>
+                      <% if (anuncio.precio) { %>
+                        <p><b><%= __('Price') %>:</b> <%= anuncio.precio %> €</p>
+                      <% } %>
                       <p> <i><%= anuncio.tags %></i></p>
                   </div>
               </div>

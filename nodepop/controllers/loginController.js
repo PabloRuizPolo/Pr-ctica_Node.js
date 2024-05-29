@@ -25,8 +25,8 @@ class LoginController {
         return;
       }
 
-      //send to userZone
-      res.redirect("yourAdds");
+      //send to index
+      res.redirect("/");
     } catch (error) {
       next(error);
     }
