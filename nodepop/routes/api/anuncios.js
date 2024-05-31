@@ -2,6 +2,9 @@ var express = require("express");
 var router = express.Router();
 const Anuncio = require("../../modelos/Anuncio");
 const upload = require("../../lib/publicUploadConfigure");
+const { Requester } = require("cote");
+
+const requester = new Requester({ name: "Nodeapp" });
 
 /* GET /api/anuncios
 return anuncios list */
@@ -52,9 +55,18 @@ router.post("/", upload.single("foto"), async (req, res, next) => {
   //paso los datos que recibo a variables
   try {
     const anuncioInfo = req.body;
-    // creamos una instancia  de agente en memoria
+    // creamos una instancia  de anuncio en memoria
     const anuncio = new Anuncio(anuncioInfo);
-    anuncio.foto = req.file.originalname;
+    anuncio.foto = req.file.filename;
+
+    //Creamos la demanda del microservici para crear un thumbnail
+    const service = {
+      type: "make-thumbnail",
+      url: `./nodepop/public/productImage/${anuncio.foto}`,
+    };
+    requester.send(service, (result) => {
+      upload.single(result);
+    });
     // Lo persistimos (guardamos) en la BD
     const anuncioSave = await anuncio.save();
 
