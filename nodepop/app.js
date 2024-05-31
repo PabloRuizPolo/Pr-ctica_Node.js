@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const i18n = require("./lib/i18nConfig");
 const jwtAuth = require("./lib/apiAuthJWT");
+const upload = require("./lib/publicUploadConfigure");
 
 const LoginController = require("./controllers/loginController");
 const CreateAddController = require("./controllers/createAddController");
@@ -45,7 +46,7 @@ app.get("/changeLangController/:locale", changeLangController.index);
 app.get("/login", loginController.index);
 app.post("/login", loginController.enter);
 app.get("/createAdd", createAddController.index);
-app.post("/createAdd", createAddController.post);
+app.post("/createAdd", upload.single("foto"), createAddController.post);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

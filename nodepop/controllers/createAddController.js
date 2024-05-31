@@ -6,14 +6,15 @@ class CreateAddController {
   }
   async post(req, res, next) {
     try {
-      const { nombre, venta, precio, tags, image } = req.body;
+      const { nombre, venta, precio, tags } = req.body;
+      const { foto } = req.file;
 
       await Anuncio.create({
         nombre,
         venta,
         precio,
         tags,
-        image,
+        foto: req.file.filename,
       });
 
       res.redirect("/");

@@ -54,7 +54,7 @@ router.post("/", upload.single("foto"), async (req, res, next) => {
     const anuncioInfo = req.body;
     // creamos una instancia  de agente en memoria
     const anuncio = new Anuncio(anuncioInfo);
-
+    anuncio.foto = req.file.originalname;
     // Lo persistimos (guardamos) en la BD
     const anuncioSave = await anuncio.save();
 

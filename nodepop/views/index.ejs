@@ -20,7 +20,7 @@
           <div class="row gx-5 align-items-center">
               <div class="col-lg-6 order-lg-2">
                 <% if (anuncio.foto) { %>
-                  <div class="p-5"><img class="img-fluid rounded-circle" src="../public/images/<%= anuncio.foto %>" alt="<%= anuncio.nombre %>"/></div>
+                  <img class="img-fluid rounded-circle" src='<%= anuncio.foto %>' alt="product's image" />
                 <% } else { %>
                 <% } %>
               </div>
