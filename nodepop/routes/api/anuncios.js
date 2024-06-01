@@ -62,11 +62,11 @@ router.post("/", upload.single("foto"), async (req, res, next) => {
     //Creamos la demanda del microservici para crear un thumbnail
     const service = {
       type: "make-thumbnail",
-      url: `./nodepop/public/productImage/${anuncio.foto}`,
+      url: `../nodepop/public/productImage/${anuncio.foto}`,
+      name: req.file.filename,
     };
-    requester.send(service, (result) => {
-      upload.single(result);
-    });
+    requester.send(service, () => {});
+
     // Lo persistimos (guardamos) en la BD
     const anuncioSave = await anuncio.save();
 
