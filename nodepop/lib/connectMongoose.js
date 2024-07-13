@@ -9,6 +9,6 @@ mongoose.connection.once("open", () => {
 });
 const mongodbURL = process.env.MONGODB_URL;
 
-mongoose.connect(`${mongodbURL}`);
+mongoose.connect(`mongodb://${mongodbURL}`);
 
 module.exports = mongoose.connection;
