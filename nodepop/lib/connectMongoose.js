@@ -7,10 +7,8 @@ mongoose.connection.on("error", (err) => {
 mongoose.connection.once("open", () => {
   console.log("Conect to mongodb at ", mongoose.connection.name);
 });
-const mongodbHost = process.env.MONGODB_HOST;
-const mongodbPort = process.env.MONGODB_PORT;
-const mongodbDatabase = process.env.MONGODB_DATABASE;
+const mongodbURL = process.env.MONGODB_URL;
 
-mongoose.connect(`mongodb://${mongodbHost}:${mongodbPort}/${mongodbDatabase}`);
+mongoose.connect(`mongodb://${mongodbURL}`);
 
 module.exports = mongoose.connection;
