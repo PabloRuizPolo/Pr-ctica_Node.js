@@ -9,8 +9,6 @@ mongoose.connection.once("open", () => {
 });
 const mongodbURL = process.env.MONGODB_URL;
 
-mongoose.connect(
-  `mongodb://${mongodbURL}` || "mongodb://127.0.0.1:27017/Nodepop"
-);
+mongoose.connect(`mongodb://${mongodbURL}`);
 
 module.exports = mongoose.connection;
