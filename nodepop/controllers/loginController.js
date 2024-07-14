@@ -45,13 +45,11 @@ class LoginController {
 
       const jwtToken = await jwt.sign(
         { userId: user._id },
-        "fwrfbiub5pORB4o3hPUIbipu",
-        {
-          expiresIn: "3h",
-        }
+        "fwrfbiub5pORB4o3hPUIbipu"
       );
 
       res.json({ jwtToken: jwtToken });
+      console.log(jwtToken);
     } catch (error) {
       next(error);
     }
